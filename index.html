@@ -9,12 +9,8 @@
 </head>
 <body>
     <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:1;display:none;"></canvas>
-    <!-- Background music (autoplay, loop, controls) -->
-    <audio id="bg-music" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae0b2.mp3" preload="auto" autoplay loop controls style="position:fixed;bottom:20px;right:20px;z-index:10;opacity:0.7;"></audio>
-    <!-- Surprise music for button (kept for effect) -->
-    <audio id="music" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae0b2.mp3" preload="auto"></audio>
     <div class="container" style="position:relative;z-index:2;">
-        <div id="audio-warning" style="color:#ff4e50;font-size:1em;margin-bottom:10px;display:none;">🔊 Tap anywhere to enable music!</div>
+        <!-- Audio warning removed -->
         <h1>🎉 Happy Birthday Puneet! 🎂</h1>
         <img src="puneet.jpeg" alt="Puneet's Birthday" class="cake-img">
         <p class="message">Wishing you a fantastic year ahead filled with joy, success, and all your favorite things!</p>
@@ -25,27 +21,6 @@
         </div>
     </div>
     <script src="script.js"></script>
-<script>
-// Ensure background music plays after user interaction (for browsers that block autoplay)
-window.addEventListener('DOMContentLoaded', function() {
-    var bgMusic = document.getElementById('bg-music');
-    var warning = document.getElementById('audio-warning');
-    // Try to play immediately
-    var playPromise = bgMusic.play();
-    if (playPromise !== undefined) {
-        playPromise.catch(function() {
-            warning.style.display = 'block';
-            var enableAudio = function() {
-                bgMusic.play();
-                warning.style.display = 'none';
-                window.removeEventListener('click', enableAudio);
-                window.removeEventListener('touchstart', enableAudio);
-            };
-            window.addEventListener('click', enableAudio);
-            window.addEventListener('touchstart', enableAudio);
-        });
-    }
-});
-</script>
+<!-- Audio script removed -->
 </body>
 </html>
